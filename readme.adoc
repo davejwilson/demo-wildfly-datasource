@@ -1,0 +1,32 @@
+= Wildfly Test DataSource Demo
+This project shows how to create test datasources,
+so that you can run your integration tests against an embedded database.
+
+== Properties File
+To get the embedded database and datasource to be created on wildfly, you need a properties file per test database.
+In this demo project only one has been created, but the same implementation approach can be used to create a few more
+for flexibility purposes.
+In the root of the project there is a `db1.properties` file. See the contents below:
+
+[source, properties]
+----
+include::db1.properties[]
+----
+
+=== Initialize Phase
+* If the `db1.properties` file exists
+** The properties plugin `read-project-properties` goal is called, to read in the properties file.
+
+=== Package Phase
+* The wildfly plugin `start` goal is called, which starts the wildfly server in a background process.
+
+=== Install Phase
+* The wildfly plugin `deploy-only` goal is called, which deploys the current service.
+* If the `db1.properties` file exists
+** The wildfly plugin `add-resource` goal is called, to add the database and datasource to wildfly,
+
+TIP: The `test-db1` profile which reads the properties file and creates the database and datasource is activated by
+the existence of the `db1.properties` file.
+
+=== Testing the DataSource
+To test the datasource use: http://localhost:8080/demo-wildfly-datasource-1.0.0-SNAPSHOT/test
