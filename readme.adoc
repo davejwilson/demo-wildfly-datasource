@@ -10,7 +10,13 @@ In the root of the project there is a `db1.properties` file. See the contents be
 
 [source]
 ----
-include::db1.properties[]
+db1.name=demo
+db1.jndi.name=jdbc/demo
+db1.url=jdbc:h2:mem:demo;DB_CLOSE_DELAY=-1
+db1.driver.class=org.h2.Driver
+db1.type=h2
+db1.user=sa
+db1.pass=sa
 ----
 
 === Initialize Phase
