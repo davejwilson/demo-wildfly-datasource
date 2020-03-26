@@ -35,4 +35,6 @@ TIP: The `test-db1` profile which reads the properties file and creates the data
 the existence of the `db1.properties` file.
 
 === Testing the DataSource
-To test the datasource use: http://localhost:8080/demo-wildfly-datasource-1.0.0-SNAPSHOT/test
+* To startup the wildfly test, run: `mvn clean install`
+* To test the datasource use: http://localhost:8080/demo-wildfly-datasource-1.0.0-SNAPSHOT/test
+* To shutdown the wildfly test, run: `mvn wildfly:shutdown`
