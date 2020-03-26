@@ -8,7 +8,7 @@ In this demo project only one has been created, but the same implementation appr
 for flexibility purposes.
 In the root of the project there is a `db1.properties` file. See the contents below:
 
-[source, properties]
+[source]
 ----
 include::db1.properties[]
 ----
